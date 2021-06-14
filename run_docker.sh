@@ -15,4 +15,4 @@
 # simple one liner for command line copying
 
 DATA_DIR=${PWD}/analysis
-sudo docker run -d --rm -p 28787:8787 --name docker-data-r -e USERID=$UID -e PASSWORD=SoSecret! -v $DATA_DIR:/home/wfpnews/analysis docker-data-r
+sudo docker run -d --rm -p 28787:8787 --name docker-data-r -e USERID=$UID -e PASSWORD=AReal_Password5! -v $DATA_DIR:/home/wfpnews/analysis docker-data-r
