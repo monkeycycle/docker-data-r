@@ -8,10 +8,7 @@ RUN apt-get update -qq && apt-get install -y \
   libcairo2-dev \
   libjpeg-dev \
   libgif-dev \
-  libpng-dev \
-  wget \
-  unzip \
-  fc-list  
+  libpng-dev 
 
 
 # create an R user
@@ -31,7 +28,7 @@ RUN mkdir -p /home/$USER/fonts
 COPY ./fonts/* /usr/share/fonts/
 COPY ./fonts/* /home/$USER/fonts/
 COPY ./install_fonts.R /tmp/install_fonts.R
-RUN Rscript /tmp/install_fonts.R
+# RUN Rscript /tmp/install_fonts.R
 RUN fc-cache -fv
 
 
