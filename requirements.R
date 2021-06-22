@@ -11,6 +11,6 @@ install.packages(c(
   "prettydoc", "scales",
   "ggpubr", "cowplot",
   "ggrepel", "ggtext",
-  "showtext",
+  "showtext", "extrafont",
   "knitr", "DT", "kableExtra"
 ))

@@ -4,11 +4,14 @@ FROM rocker/tidyverse
 RUN apt-get update -qq && apt-get install -y \
   libssl-dev \
   libcurl4-gnutls-dev \
-  libcairo2-dev \
   libxt-dev \
+  libcairo2-dev \
   libjpeg-dev \
   libgif-dev \
-  libpng-dev
+  libpng-dev \
+  wget \
+  unzip \
+  fc-list  
 
 
 # create an R user
@@ -19,8 +22,18 @@ RUN R -e "install.packages('devtools')"
 RUN R -e "install.packages('upstartr')"
 RUN R -e "install.packages('showtextdb')"
 
+# Required packages
 COPY ./requirements.R /tmp/requirements.R
 RUN Rscript /tmp/requirements.R
+
+# Install missing fonts
+RUN mkdir -p /home/$USER/fonts
+COPY ./fonts/* /usr/share/fonts/
+COPY ./fonts/* /home/$USER/fonts/
+COPY ./install_fonts.R /tmp/install_fonts.R
+RUN Rscript /tmp/install_fonts.R
+RUN fc-cache -fv
+
 
 # Copy project files into the docker container
 COPY . /home/$USER
