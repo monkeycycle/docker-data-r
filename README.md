@@ -12,8 +12,6 @@ Runs as user `r_user` by default at build time.
 ```useradd -g users -G docker -m -s /bin/bash wfpnews```
 
 # Build the image
-Third-party credentials (AWS/Google API keys) are not included in build or run. 
-
 
 ```docker build --rm --force-rm -t docker-data-r .```
 
@@ -23,7 +21,8 @@ Third-party credentials (AWS/Google API keys) are not included in build or run.
 
 This sets data directory and defines user credentials to access RStudio. Adjust the `docker run ` options to suit. 
 
-* **Manually add a .env after the image is running.**
+
+Third-party credentials (AWS/Google API keys) are not included in build or run. **Manually add a .env after the image is running.**
 
 
 
