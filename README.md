@@ -18,10 +18,13 @@ Third-party credentials (AWS/Google API keys) are not included in build or run.
 ```docker build --rm --force-rm -t docker-data-r .```
 
 # Run the image
-Manually add a .env after the image is running. 
-
-```docker run -d --rm -p 28787:8787 --name docker-data-r -e USERID=$UID -e PASSWORD=AReal_Password5! -v $DATA_DIR:/home/wfpnews/analysis docker-data-r```
-
-or 
 
 `sh ./run_docker.sh`
+
+This sets data directory and defines user credentials to access RStudio. Adjust the `docker run ` options to suit. 
+
+* **Manually add a .env after the image is running.**
+
+
+
+
