@@ -12,7 +12,7 @@ RUN apt-get update -qq && apt-get install -y \
 
 
 # create an R user
-ENV USER wfpnews
+ENV USER r_user
 
 # install devtools and upstartr
 RUN R -e "install.packages('devtools')"
@@ -27,11 +27,9 @@ RUN Rscript /tmp/requirements.R
 RUN mkdir -p /home/$USER/fonts
 COPY ./fonts/* /usr/share/fonts/
 COPY ./fonts/* /home/$USER/fonts/
-COPY ./install_fonts.R /tmp/install_fonts.R
-# RUN Rscript /tmp/install_fonts.R
+COPY ./install_fonts.R /home/$USER/install_fonts.R
+# RUN Rscript /home/$USER/install_fonts.R
 RUN fc-cache -fv
-
 
 # Copy project files into the docker container
 COPY . /home/$USER
-

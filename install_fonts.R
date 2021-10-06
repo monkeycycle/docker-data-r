@@ -19,6 +19,6 @@ if (! skip ) {
 	library("extrafont")
 
 	# importing takes awhile but only has to be done once.
-	font_import("Rsetup/fonts/", prompt=FALSE)
+	font_import("./fonts/", prompt=FALSE)
 	loadfonts()
 }
